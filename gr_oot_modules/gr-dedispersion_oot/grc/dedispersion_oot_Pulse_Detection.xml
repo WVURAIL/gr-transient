@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<block>
+  <name>Pulse_Detection</name>
+  <key>dedispersion_oot_Pulse_Detection</key>
+  <category>[dedispersion_oot]</category>
+  <import>import dedispersion_oot</import>
+  <make>dedispersion_oot.Pulse_Detection($pac_size, $pw, $nt, $dms)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+
+  <param>
+    <name>pac_size</name>
+    <key>pac_size</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>pw</name>
+    <key>pw</key>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>nt</name>
+    <key>nt</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>dms</name>
+    <key>dms</key>
+    <type>float_vector</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  
+
+  <sink>
+    <name>in0</name>
+    <type>float</type>
+    <vlen>len($dms)*$nt</vlen>
+  </sink>
+  
+  
+  <sink>
+    <name>in1</name>
+    <type>float</type>
+    <vlen>len($dms)*$nt</vlen>
+  </sink>
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type><!-- e.g. int, float, complex, byte, short, xxx_vector, ...--></type>
+  </source>
+</block>

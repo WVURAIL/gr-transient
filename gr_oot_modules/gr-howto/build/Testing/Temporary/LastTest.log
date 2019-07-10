@@ -1,0 +1,43 @@
+Start testing: Jun 27 16:25 EDT
+----------------------------------------------------------
+1/2 Testing: qa_square_ff
+1/2 Test: qa_square_ff
+Command: "/bin/sh" "/home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-howto/build/python/qa_square_ff_test.sh"
+Directory: /home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-howto/build/python
+"qa_square_ff" start time: Jun 27 16:25 EDT
+Output:
+----------------------------------------------------------
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"qa_square_ff" end time: Jun 27 16:25 EDT
+"qa_square_ff" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: qa_Jans_to_Joule
+2/2 Test: qa_Jans_to_Joule
+Command: "/bin/sh" "/home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-howto/build/python/qa_Jans_to_Joule_test.sh"
+Directory: /home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-howto/build/python
+"qa_Jans_to_Joule" start time: Jun 27 16:25 EDT
+Output:
+----------------------------------------------------------
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"qa_Jans_to_Joule" end time: Jun 27 16:25 EDT
+"qa_Jans_to_Joule" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 27 16:25 EDT

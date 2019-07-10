@@ -1,0 +1,30 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_DEDISPERSION_OOT dedispersion_oot)
+
+FIND_PATH(
+    DEDISPERSION_OOT_INCLUDE_DIRS
+    NAMES dedispersion_oot/api.h
+    HINTS $ENV{DEDISPERSION_OOT_DIR}/include
+        ${PC_DEDISPERSION_OOT_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    DEDISPERSION_OOT_LIBRARIES
+    NAMES gnuradio-dedispersion_oot
+    HINTS $ENV{DEDISPERSION_OOT_DIR}/lib
+        ${PC_DEDISPERSION_OOT_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(DEDISPERSION_OOT DEFAULT_MSG DEDISPERSION_OOT_LIBRARIES DEDISPERSION_OOT_INCLUDE_DIRS)
+MARK_AS_ADVANCED(DEDISPERSION_OOT_LIBRARIES DEDISPERSION_OOT_INCLUDE_DIRS)
+

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="api_8h" kind="file" language="C++">
+    <compoundname>api.h</compoundname>
+    <includes local="no">gnuradio/attributes.h</includes>
+    <incdepgraph>
+      <node id="0">
+        <label>api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>gnuradio/attributes.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="api_8h_1a8be4c936206b3e96d9557b6dc279166d" prot="public" static="no">
+        <name>DEDISPERSION_OOT_API</name>
+        <initializer>__GR_ATTR_IMPORT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-dedispersion_oot/include/dedispersion_oot/api.h" line="30" column="12" bodyfile="/home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-dedispersion_oot/include/dedispersion_oot/api.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/andy/FRB_Pipeline_and_Contributions/gr-transient/gr_oot_modules/gr-dedispersion_oot/include/dedispersion_oot/api.h"/>
+  </compounddef>
+</doxygen>
