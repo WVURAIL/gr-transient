@@ -117,7 +117,7 @@ def _detection(img1, img2, pac_size, pw, nt, ndm):
     #print(maximums)
     SNR = (maximums-corr_mean)/(corr_std)
 
-    return SNR.flatten()
+    return SNR.flatten(), img1
 
 
 
@@ -141,7 +141,7 @@ class Pulse_Detection(gr.sync_block):
         gr.sync_block.__init__(self,
             name="Pulse_Detection",
             in_sig=[(np.float32, nt*self.ndm),(np.float32,nt*self.ndm)],
-            out_sig=[(np.float32, self.ndm)])
+            out_sig=[(np.float32, nt)])
         self.pac_size = pac_size 
         self.pw = pw
         self.nt = nt
@@ -152,11 +152,18 @@ class Pulse_Detection(gr.sync_block):
         in0 = input_items[0]
         in1 = input_items[1]
         out = output_items[0]
-        outcome = _detection(in0,in1, self.pac_size, self.pw, self.nt, self.ndm)
+        outcome, sig= _detection(in0,in1, self.pac_size, self.pw, self.nt, self.ndm)
         #print(len(np.where(outcome>10)[0]))
-        if len(np.where(outcome>10)[0]) <=5:
-            print("NO PULSAR DETECTED")
+        signals = []
+        for i in range(self.ndm):
+            if len(np.where(outcome>10)[0]) <=1:
+                print("NO PULSAR DETECTED")
+                sig = 0
+            elif  outcome[i]==outcome.max():
+                signals = sig[i]
+        signals = np.asarray(signals)
+
         # <+signal processing here+>
-        out[:] = outcome
+        out[:] = signals
         return len(output_items[0])
 

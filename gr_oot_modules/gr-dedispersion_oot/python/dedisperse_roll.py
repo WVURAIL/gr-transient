@@ -37,7 +37,6 @@ def _dedisperse( disp_pulse, vec_length, dms, f_obs, bw, nt, time_length, ndm):
     nt         : (int) The number of time samples that are in the data set after integration. This is found by the integer ratio of the length of the data set, and freqnecy channels and integration size
     time_length: (float) The total time in seconds that the data covers. Ie the total observing time
     """
-    current_time = time.time()
     nf = vec_length
     nt = nt
     ndm = ndm
@@ -59,10 +58,7 @@ def _dedisperse( disp_pulse, vec_length, dms, f_obs, bw, nt, time_length, ndm):
             #print(dmk)
             #print(shift)
             de_dis[:,j] = np.roll(disp_pulse[:,j], int(round(shift)))
-        de_dis_ar[:,i] = np.sum(de_dis, axis= 1)               
-    new_time = time.time()
-    time_difference = new_time-current_time
-    #print(time_difference)
+        de_dis_ar[:,i] = np.sum(de_dis, axis= 1)        
     de_dis_ar = np.transpose(de_dis_ar)
     #print(np.std(de_dis_ar[0]))
     #print(de_dis_ar[0,0])
@@ -106,7 +102,11 @@ class dedisperse_roll(gr.sync_block):
         in0 = input_items[0]
         out = output_items[0]
         # <+signal processing here+>
+        current_time = time.time()
         out[:] = self.dedisperse(in0)
+        new_time = time.time()
+        time_difference = new_time-current_time
+        print(time_difference)
         return len(output_items[0])
 
 
