@@ -1,5 +1,5 @@
 # Jupyter Notebooks
-The entire process of FRB and pulsar detection, from pulse simulation to dedispersion is simulated through the latest python document, which as of now is "Pulsar Simulator_10MHz_PSRB0329+54_second_noise_reduction_technique.ipynb". To begin, the initial parameters for the pulse are chosen. They are as follows:
+The entire process of FRB and pulsar detection, from pulse simulation to dedispersion is simulated through the latest python document, which as of now is "Pulsar SImulator_10MHz_PSRB0329+54_final_before_optimization.ipynb". To begin, the initial parameters for the pulse are chosen. They are as follows:
 
 * Centre Frequency: 1400MHz
 * Bandwidth: 10MHz

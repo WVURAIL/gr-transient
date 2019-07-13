@@ -71,7 +71,28 @@ def _dedisperse( disp_pulse, vec_length, dms, f_obs, bw, nt, time_length, ndm):
 
 class dedisperse_roll(gr.sync_block):
     """
-    Must add a .0 after the float values otherwise the block will not work
+    Dedisperses data that has been given to it
+
+
+    NOTES: Must add a .0 after the float values otherwise the block will not work
+
+
+    INPUT
+
+    disp_pulse : (float) The data that is being dedispersed
+    vec_length : (int) This is the number of frequencies that the incoming data has. In GNU radio, this is the vector size that is produced by an FFT sink
+    dms        : (float vector) The range of dispersion measures that will be tested to see which is the correct one
+    f_obs      : (float) The central frequency in MHz at which the bandwidth is centred about
+    bw         : (float) The total observing bandwidth in MHz that is being observed
+    nt         : (int) The number of time samples that are in the data set after integration. This is found by the integer ratio of the length of the data set, and freqnecy channels and integration size
+    time_length: (float) The total time in seconds that the data covers. Ie the total observing time
+
+    
+    OUTPUT
+
+    de_dis_ar: (float vector) The dedispersed pulse 
+
+
     """
     def __init__(self, vec_length, dms, f_obs, bw, nt, time_length):
         self.ndm = len(dms)

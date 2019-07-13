@@ -2,6 +2,8 @@
 
 ## List of Documents:
 
+Note that the detailed documentation of the python pipeline is not located in the readme file under jupyter. The theory will be located there as well
+
 The dedispersed png files such as ![](Dedispersed_pulsar_DM=100.png) show the pulsar after it has been dedispersed.
 
 The dispersed files after this include the dispersed pulsar with noise and without noise. The without noise looks like a dispersed pulse train ![](despirsed_pulse_DM=400.png), while the train with noise looks like ![](despirsed_pulse_with_noise_DM=400.png).

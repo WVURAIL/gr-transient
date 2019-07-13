@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Thu Jul 11 13:23:15 2019
+# Generated: Sat Jul 13 12:53:42 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -87,6 +87,9 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
+        self._delay1_range = Range(0, 100, 1, 0, 200)
+        self._delay1_win = RangeWidget(self._delay1_range, self.set_delay1, "delay1", "counter_slider", int)
+        self.top_layout.addWidget(self._delay1_win)
         self.qtgui_vector_sink_f_0_1 = qtgui.vector_sink_f(
             vec_length,
             0,
@@ -124,7 +127,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self._qtgui_vector_sink_f_0_1_win = sip.wrapinstance(self.qtgui_vector_sink_f_0_1.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_vector_sink_f_0_1_win)
         self.qtgui_time_sink_x_0_2 = qtgui.time_sink_f(
-        	750*5, #size
+        	750, #size
         	samp_rate/10, #samp_rate
         	"", #name
         	1 #number of inputs
@@ -219,116 +222,15 @@ class top_block(gr.top_block, Qt.QWidget):
 
         self._qtgui_time_sink_x_0_1_win = sip.wrapinstance(self.qtgui_time_sink_x_0_1.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_1_win)
-        self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
-        	750, #size
-        	samp_rate, #samp_rate
-        	"", #name
-        	1 #number of inputs
-        )
-        self.qtgui_time_sink_x_0_0.set_update_time(0.10)
-        self.qtgui_time_sink_x_0_0.set_y_axis(-1, 1)
-
-        self.qtgui_time_sink_x_0_0.set_y_label('Amplitude', "")
-
-        self.qtgui_time_sink_x_0_0.enable_tags(-1, True)
-        self.qtgui_time_sink_x_0_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_0_0.enable_autoscale(True)
-        self.qtgui_time_sink_x_0_0.enable_grid(False)
-        self.qtgui_time_sink_x_0_0.enable_axis_labels(True)
-        self.qtgui_time_sink_x_0_0.enable_control_panel(False)
-        self.qtgui_time_sink_x_0_0.enable_stem_plot(False)
-
-        if not True:
-          self.qtgui_time_sink_x_0_0.disable_legend()
-
-        labels = ['', '', '', '', '',
-                  '', '', '', '', '']
-        widths = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        colors = ["blue", "red", "green", "black", "cyan",
-                  "magenta", "yellow", "dark red", "dark green", "blue"]
-        styles = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        markers = [-1, -1, -1, -1, -1,
-                   -1, -1, -1, -1, -1]
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-                  1.0, 1.0, 1.0, 1.0, 1.0]
-
-        for i in xrange(1):
-            if len(labels[i]) == 0:
-                self.qtgui_time_sink_x_0_0.set_line_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_time_sink_x_0_0.set_line_label(i, labels[i])
-            self.qtgui_time_sink_x_0_0.set_line_width(i, widths[i])
-            self.qtgui_time_sink_x_0_0.set_line_color(i, colors[i])
-            self.qtgui_time_sink_x_0_0.set_line_style(i, styles[i])
-            self.qtgui_time_sink_x_0_0.set_line_marker(i, markers[i])
-            self.qtgui_time_sink_x_0_0.set_line_alpha(i, alphas[i])
-
-        self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.pyqwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
-        self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-        	750*5, #size
-        	samp_rate/10, #samp_rate
-        	"dedispersed", #name
-        	1 #number of inputs
-        )
-        self.qtgui_time_sink_x_0.set_update_time(0.10)
-        self.qtgui_time_sink_x_0.set_y_axis(-1, 1)
-
-        self.qtgui_time_sink_x_0.set_y_label('Amplitude', "")
-
-        self.qtgui_time_sink_x_0.enable_tags(-1, True)
-        self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_0.enable_autoscale(False)
-        self.qtgui_time_sink_x_0.enable_grid(False)
-        self.qtgui_time_sink_x_0.enable_axis_labels(True)
-        self.qtgui_time_sink_x_0.enable_control_panel(False)
-        self.qtgui_time_sink_x_0.enable_stem_plot(False)
-
-        if not True:
-          self.qtgui_time_sink_x_0.disable_legend()
-
-        labels = ['', '', '', '', '',
-                  '', '', '', '', '']
-        widths = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        colors = ["blue", "red", "green", "black", "cyan",
-                  "magenta", "yellow", "dark red", "dark green", "blue"]
-        styles = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        markers = [-1, -1, -1, -1, -1,
-                   -1, -1, -1, -1, -1]
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-                  1.0, 1.0, 1.0, 1.0, 1.0]
-
-        for i in xrange(1):
-            if len(labels[i]) == 0:
-                self.qtgui_time_sink_x_0.set_line_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_time_sink_x_0.set_line_label(i, labels[i])
-            self.qtgui_time_sink_x_0.set_line_width(i, widths[i])
-            self.qtgui_time_sink_x_0.set_line_color(i, colors[i])
-            self.qtgui_time_sink_x_0.set_line_style(i, styles[i])
-            self.qtgui_time_sink_x_0.set_line_marker(i, markers[i])
-            self.qtgui_time_sink_x_0.set_line_alpha(i, alphas[i])
-
-        self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.pyqwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
         self.fft_vxx_0_0 = fft.fft_vcc(400, True, (window.rectangular(vec_length)), True, 1)
         self.fft_vxx_0 = fft.fft_vcc(400, True, (window.rectangular(vec_length)), True, 1)
-        self._delay1_range = Range(0, 20000, 10, 0, 200)
-        self._delay1_win = RangeWidget(self._delay1_range, self.set_delay1, "delay1", "counter_slider", int)
-        self.top_layout.addWidget(self._delay1_win)
-        self.dedispersion_oot_dedisperse_roll_0_0 = dedispersion_oot.dedisperse_roll(400, ([600,601,620,10,700]), 1400.000, 10.000, 750, .15)
-        self.dedispersion_oot_dedisperse_roll_0 = dedispersion_oot.dedisperse_roll(400, ([600,601,620,10,700]), 1400.000, 10.000, 750, .15)
-        self.dedispersion_oot_Pulse_Detection_0 = dedispersion_oot.Pulse_Detection(25, 2.0, 750, ([600,601,620,10,700]))
-        self.blocks_vector_to_stream_1_0_1 = blocks.vector_to_stream(gr.sizeof_float*1, 750*5)
+        self.dedispersion_oot_dedisperse_roll_0_0 = dedispersion_oot.dedisperse_roll(400, ([600,601,602,603,604]), 1400.000, 10.000, 750, .15)
+        self.dedispersion_oot_dedisperse_roll_0 = dedispersion_oot.dedisperse_roll(400, ([600,601,602,603,604]), 1400.000, 10.000, 750, .15)
+        self.dedispersion_oot_Pulse_Detection_0 = dedispersion_oot.Pulse_Detection(25, 2.0, 750, ([600,601,602,603,604]))
         self.blocks_vector_to_stream_1_0_0 = blocks.vector_to_stream(gr.sizeof_float*1, 750)
-        self.blocks_vector_to_stream_1_0 = blocks.vector_to_stream(gr.sizeof_float*1, 750*5)
         self.blocks_vector_to_stream_0_1 = blocks.vector_to_stream(gr.sizeof_float*1, 400)
         self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_float*1, 400)
-        self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, 1e6,True)
+        self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, 1e6/2,True)
         self.blocks_stream_to_vector_2_0 = blocks.stream_to_vector(gr.sizeof_float*400, 750)
         self.blocks_stream_to_vector_2 = blocks.stream_to_vector(gr.sizeof_float*400, 750)
         self.blocks_stream_to_vector_1_1 = blocks.stream_to_vector(gr.sizeof_float*1, 400)
@@ -355,8 +257,8 @@ class top_block(gr.top_block, Qt.QWidget):
         self.blocks_interleaved_short_to_complex_0 = blocks.interleaved_short_to_complex(False, False)
         self.blocks_integrate_xx_0_0_0 = blocks.integrate_cc(int(display_integration*samp_rate/vec_length), vec_length)
         self.blocks_integrate_xx_0_0 = blocks.integrate_cc(int(display_integration*samp_rate/vec_length), vec_length)
-        self.blocks_integrate_xx_0 = blocks.integrate_ff(400, 1)
         self.blocks_file_source_0_1 = blocks.file_source(gr.sizeof_short*1, '/home/andy/FRB_Pipeline_and_Contributions/gr-transient/jupyter/pulse_sim_10mhz_int16_5ms_period_60dm_1400MHz_center_150ms_long_noise.bin', True)
+        self.blocks_file_source_0_0 = blocks.file_source(gr.sizeof_float*1, '/home/andy/FRB_Pipeline_and_Contributions/gr-transient/jupyter/pulse_sim_10mhz_int16_5ms_period_60dm_1400MHz_center_150ms_long_corr.bin', True)
         self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*1, '/home/andy/FRB_Pipeline_and_Contributions/gr-transient/jupyter/pulse_sim_10mhz_int16_5ms_period_60dm_1400MHz_center_150ms_long.bin', True)
         self.blocks_delay_0_0_1 = blocks.delay(gr.sizeof_gr_complex*1, vec_length)
         self.blocks_delay_0_0_0_1 = blocks.delay(gr.sizeof_gr_complex*1, 2*vec_length)
@@ -364,6 +266,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.blocks_delay_0_0_0_0 = blocks.delay(gr.sizeof_gr_complex*1, 3*vec_length)
         self.blocks_delay_0_0_0 = blocks.delay(gr.sizeof_gr_complex*1, 2*vec_length)
         self.blocks_delay_0_0 = blocks.delay(gr.sizeof_gr_complex*1, vec_length)
+        self.blocks_delay_0 = blocks.delay(gr.sizeof_float*1, delay1)
         self.blocks_complex_to_real_0_0 = blocks.complex_to_real(vec_length)
         self.blocks_complex_to_real_0 = blocks.complex_to_real(vec_length)
         self.blocks_add_xx_0_0 = blocks.add_vcc(vec_length)
@@ -376,6 +279,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_add_xx_0_0, 0), (self.fft_vxx_0_0, 0))
         self.connect((self.blocks_complex_to_real_0, 0), (self.blocks_vector_to_stream_0, 0))
         self.connect((self.blocks_complex_to_real_0_0, 0), (self.blocks_vector_to_stream_0_1, 0))
+        self.connect((self.blocks_delay_0, 0), (self.qtgui_time_sink_x_0_2, 0))
         self.connect((self.blocks_delay_0_0, 0), (self.blocks_stream_to_vector_0_0, 0))
         self.connect((self.blocks_delay_0_0_0, 0), (self.blocks_stream_to_vector_0_2, 0))
         self.connect((self.blocks_delay_0_0_0_0, 0), (self.blocks_stream_to_vector_0_1, 0))
@@ -383,8 +287,8 @@ class top_block(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_delay_0_0_0_1, 0), (self.blocks_stream_to_vector_0_2_0, 0))
         self.connect((self.blocks_delay_0_0_1, 0), (self.blocks_stream_to_vector_0_0_0, 0))
         self.connect((self.blocks_file_source_0, 0), (self.blocks_interleaved_short_to_complex_0, 0))
+        self.connect((self.blocks_file_source_0_0, 0), (self.blocks_delay_0, 0))
         self.connect((self.blocks_file_source_0_1, 0), (self.blocks_interleaved_short_to_complex_0_0, 0))
-        self.connect((self.blocks_integrate_xx_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.blocks_integrate_xx_0_0, 0), (self.blocks_complex_to_real_0, 0))
         self.connect((self.blocks_integrate_xx_0_0_0, 0), (self.blocks_complex_to_real_0_0, 0))
         self.connect((self.blocks_interleaved_short_to_complex_0, 0), (self.blocks_delay_0_0, 0))
@@ -419,17 +323,12 @@ class top_block(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_stream_to_vector_1_1, 0), (self.qtgui_vector_sink_f_0_1, 1))
         self.connect((self.blocks_stream_to_vector_2, 0), (self.dedispersion_oot_dedisperse_roll_0, 0))
         self.connect((self.blocks_stream_to_vector_2_0, 0), (self.dedispersion_oot_dedisperse_roll_0_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.blocks_integrate_xx_0, 0))
         self.connect((self.blocks_throttle_0, 0), (self.blocks_stream_to_vector_1, 0))
         self.connect((self.blocks_vector_to_stream_0, 0), (self.blocks_throttle_0, 0))
         self.connect((self.blocks_vector_to_stream_0_1, 0), (self.blocks_stream_to_vector_1_1, 0))
-        self.connect((self.blocks_vector_to_stream_1_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_vector_to_stream_1_0_0, 0), (self.qtgui_time_sink_x_0_1, 0))
-        self.connect((self.blocks_vector_to_stream_1_0_1, 0), (self.qtgui_time_sink_x_0_2, 0))
         self.connect((self.dedispersion_oot_Pulse_Detection_0, 0), (self.blocks_vector_to_stream_1_0_0, 0))
-        self.connect((self.dedispersion_oot_dedisperse_roll_0, 0), (self.blocks_vector_to_stream_1_0, 0))
         self.connect((self.dedispersion_oot_dedisperse_roll_0, 0), (self.dedispersion_oot_Pulse_Detection_0, 0))
-        self.connect((self.dedispersion_oot_dedisperse_roll_0_0, 0), (self.blocks_vector_to_stream_1_0_1, 0))
         self.connect((self.dedispersion_oot_dedisperse_roll_0_0, 0), (self.dedispersion_oot_Pulse_Detection_0, 1))
         self.connect((self.fft_vxx_0, 0), (self.blocks_multiply_conjugate_cc_0, 0))
         self.connect((self.fft_vxx_0, 0), (self.blocks_multiply_conjugate_cc_0, 1))
@@ -498,8 +397,6 @@ class top_block(gr.top_block, Qt.QWidget):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.qtgui_time_sink_x_0_2.set_samp_rate(self.samp_rate/10)
-        self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
-        self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate/10)
 
     def get_recfile(self):
         return self.recfile
@@ -530,6 +427,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_delay1(self, delay1):
         self.delay1 = delay1
+        self.blocks_delay_0.set_dly(self.delay1)
 
     def get_custom_window(self):
         return self.custom_window

@@ -126,13 +126,22 @@ def _detection(img1, img2, pac_size, pw, nt, ndm):
 
 class Pulse_Detection(gr.sync_block):
     """
-    This block detects whether or not a pulsar or FRB is present in the dataset. 
 
-    INPUT:
+    Determines if a pulsar has been detected. If so, the data is let through and the dedispersed pulsar is given as an output array. If not, then nothing is given
+    and the statement that a pulsar has not been detected is printed.
 
 
+    INPUT
 
-    OUTPUT:
+    img1    : (float vector) The dedispersed pulsar that we are anylizing.
+    img2    : (float vector) The noise that is assumed to be the background noise for the pulsar.
+    pac_size: (int) The number of samples wide the pulse will be
+    pw      : (float) The variance of the pulse
+
+
+    OUTPUT
+
+    SNR: (int vector) The signal to noise ratio of the pulsar to noise
 
 
     """
@@ -158,7 +167,7 @@ class Pulse_Detection(gr.sync_block):
         for i in range(self.ndm):
             if len(np.where(outcome>10)[0]) <=1:
                 print("NO PULSAR DETECTED")
-                sig = 0
+                signals=sig[0]*0
             elif  outcome[i]==outcome.max():
                 signals = sig[i]
         signals = np.asarray(signals)
