@@ -1,0 +1,15 @@
+# Generated build outputs; keep the published Doxygen HTML and assets.
+**/build/*
+!**/build/docs/
+**/build/docs/*
+!**/build/docs/doxygen/
+**/build/docs/doxygen/*
+!**/build/docs/doxygen/html/
+
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Local notebook checkpoints
+.ipynb_checkpoints/

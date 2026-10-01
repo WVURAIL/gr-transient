@@ -1,3 +1,0 @@
-qa_square_ff 8 0.0189216
-qa_Jans_to_Joule 5 0.0308672
----
